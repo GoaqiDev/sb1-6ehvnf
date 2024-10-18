@@ -26,36 +26,29 @@ import { DisclaimerComponent } from '../shared/disclaimer/disclaimer.component';
       </div>
     </div>
     <app-disclaimer></app-disclaimer>
+    <div class="ad-space">
+      <!-- Espacio para el anuncio de Google AdSense -->
+      <p>Anuncio de Google AdSense</p>
+    </div>
   `,
   styles: [`
     .search-container {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 10px;
       margin-bottom: 20px;
     }
-    .search-input {
-      flex-grow: 1;
+    .search-input, .category-select, .search-button {
+      width: 100%;
       padding: 10px;
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      min-width: 200px;
-    }
-    .category-select {
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      min-width: 200px;
     }
     .search-button {
-      padding: 10px 20px;
-      font-size: 16px;
       background-color: #003366;
       color: white;
       border: none;
-      border-radius: 4px;
       cursor: pointer;
     }
     .search-button:hover {
@@ -64,6 +57,7 @@ import { DisclaimerComponent } from '../shared/disclaimer/disclaimer.component';
     .results-container {
       display: grid;
       gap: 20px;
+      margin-bottom: 60px; /* Espacio para el anuncio fijo */
     }
     .result-item {
       background-color: white;
@@ -81,12 +75,25 @@ import { DisclaimerComponent } from '../shared/disclaimer/disclaimer.component';
     a:hover {
       text-decoration: underline;
     }
-    @media (max-width: 768px) {
+    .ad-space {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f0f0f0;
+      padding: 10px;
+      text-align: center;
+      border-top: 1px solid #ccc;
+    }
+    @media (min-width: 768px) {
       .search-container {
-        flex-direction: column;
+        flex-direction: row;
       }
-      .search-input, .category-select, .search-button {
-        width: 100%;
+      .search-input {
+        flex-grow: 1;
+      }
+      .category-select, .search-button {
+        width: auto;
       }
     }
   `]
